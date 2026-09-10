@@ -1,0 +1,142 @@
+.body-map-page {
+  min-height: 100vh;
+  padding-top: 80px;
+  display: flex;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.body-map-page.animate-in { opacity: 1; }
+
+.bodymap-scene {
+  flex: 1;
+  min-height: calc(100vh - 80px);
+  position: relative;
+}
+.bodymap-sidebar {
+  width: 380px;
+  padding: 40px 28px;
+  border-left: 1px solid rgba(255,255,255,0.05);
+  background: rgba(10, 10, 15, 0.5);
+  backdrop-filter: blur(10px);
+  overflow-y: auto;
+  max-height: calc(100vh - 80px);
+}
+.bodymap-header { margin-bottom: 32px; }
+.bodymap-header h2 { font-size: 1.6rem; margin-bottom: 8px; }
+.bodymap-header p { font-size: 0.85rem; color: var(--text-muted); }
+
+.muscle-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+.muscle-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-smooth);
+}
+.muscle-btn:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: var(--btn-color);
+  color: var(--text-primary);
+}
+.muscle-btn.active {
+  background: color-mix(in srgb, var(--btn-color) 15%, transparent);
+  border-color: var(--btn-color);
+  color: var(--text-primary);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--btn-color) 20%, transparent);
+}
+.muscle-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.exercise-panel {
+  padding: 24px;
+  animation: fade-up 0.4s ease forwards;
+}
+.exercise-panel-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.exercise-color {
+  width: 4px;
+  height: 24px;
+  border-radius: 2px;
+}
+.exercise-panel-header h3 { font-size: 1rem; }
+
+.exercise-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.exercise-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: var(--radius-sm);
+  opacity: 0;
+  animation: fade-up 0.3s ease forwards;
+  transition: all var(--transition-fast);
+}
+.exercise-item:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(0, 212, 255, 0.15);
+}
+.exercise-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-family: var(--font-primary);
+}
+.exercise-name {
+  flex: 1;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+.exercise-add {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.03);
+}
+.exercise-add:hover {
+  color: var(--neon-blue);
+  background: rgba(0, 212, 255, 0.1);
+}
+
+@media (max-width: 900px) {
+  .body-map-page { flex-direction: column; }
+  .bodymap-scene { min-height: 50vh; }
+  .bodymap-sidebar {
+    width: 100%;
+    max-height: none;
+    border-left: none;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+}
